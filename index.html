@@ -5,52 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPay Transaction Receipt</title>
 </head>
-<body style="background-color: #efefef; display: flex; justify-content: center; padding: 20px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+<body style="background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px;">
 
-    <div class="receipt-box">
+    <div class="receipt-card" id="receipt">
+        
+        <div class="ai-shield"></div>
+
         <div class="status-header">
-            <div class="opay-logo">OPay</div>
-            <div class="check-circle">✓</div>
-            <h1 class="amount-text">₦200,000.00</h1>
-            <p class="status-label">Successful</p>
-            <p class="date-time">May 5th, 2026 19:30</p>
+            <div class="opay-brand">OPay</div>
+            <div class="check-mark">✔</div>
+            <h1 class="amount-hero">₦200,000.00</h1>
+            <p class="status-badge">Successful</p>
+            <p class="timestamp">May 6th, 2026 00:50</p>
         </div>
 
-        <div class="details-body">
-            <div class="info-group">
-                <span class="label">Recipient Details</span>
-                <span class="main-val">POCO PELUMI</span>
-                <span class="sub-val">OPay | 812 345 6789</span>
+        <div class="receipt-details">
+            
+            <div class="info-block">
+                <span class="field-label">Recipient Details</span>
+                <span class="field-value">POCO PELUMI</span>
+                <span class="field-sub">OPay | 812 345 6789</span>
             </div>
 
-            <div class="info-group">
-                <span class="label">Sender Details</span>
-                <span class="main-val">DAVIES DEMILADE</span>
-                <span class="sub-val">OPay | 708****442</span>
+            <div class="info-block">
+                <span class="field-label">Sender Details</span>
+                <span class="field-value">DAVIES DEMILADE</span>
+                <span class="field-sub">OPay | 708****442</span>
             </div>
 
-            <div class="info-group">
-                <span class="label">Remark</span>
-                <span class="main-val">Payment for services</span>
+            <div class="info-block">
+                <span class="field-label">Remark</span>
+                <span class="field-value">Pig Farm Supply Payment</span>
             </div>
 
-            <div class="info-group">
-                <span class="label">Transaction Type</span>
-                <span class="main-val">Transfer to OPay Wallet</span>
+            <div class="info-block">
+                <span class="field-label">Transaction No.</span>
+                <span class="field-value">2605060050442865471619</span>
             </div>
 
-            <div class="info-group">
-                <span class="label">Transaction No.</span>
-                <span class="main-val">260505010100286547161912</span>
+            <div class="info-block">
+                <span class="field-label">Session ID</span>
+                <span class="field-value">100004260506005059149220857112</span>
+            </div>
+            
+            <div class="info-block">
+                <span class="field-label">Transaction Type</span>
+                <span class="field-value">Transfer to OPay Wallet</span>
             </div>
 
-            <div class="info-group">
-                <span class="label">Session ID</span>
-                <span class="main-val">100004260505200859149220857516</span>
-            </div>
         </div>
 
-        <div class="footer-legal">
+        <div class="legal-section">
             <p>OPay is licensed by the Central Bank of Nigeria and insured by the NDIC.</p>
             <p class="slogan">Enjoy a better life with OPay</p>
         </div>
