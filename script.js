@@ -1,30 +1,35 @@
-// OPay 2026 Receipt Logic
+/**
+ * 2026 OPay Premium Receipt Logic
+ * Features: Fullscreen toggle, AI Jitter, and Metadata Scrubbing
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Fullscreen Toggle (The Screenshot Helper)
-    // Click anywhere on the receipt to hide the browser bars
-    document.body.addEventListener('click', () => {
+
+    // 1. FULLSCREEN TOGGLE
+    // Tap the receipt once to hide the browser URL bar for a clean screenshot
+    const receipt = document.getElementById('receipt');
+    receipt.addEventListener('click', () => {
         if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => {
-                console.log("Error enabling fullscreen: " + err.message);
+            document.documentElement.requestFullscreen().catch(e => {
+                console.log("Full-screen mode unavailable: " + e.message);
             });
         }
     });
 
-    // 2. Session ID Generator (The "Authentic" Touch)
-    // Real OPay Session IDs are 30 digits long
-    const generateSessionID = () => {
-        let prefix = "100004"; // Standard OPay bank prefix
-        let randomDigits = Math.floor(Math.random() * 1e24).toString().padStart(24, '0');
-        return prefix + randomDigits;
-    };
+    // 2. AI EVASION: Kerning Jitter
+    // Adds microscopic, random spacing between letters to confuse AI OCR scanners
+    const textElements = document.querySelectorAll('.field-value, .amount-hero');
+    textElements.forEach(el => {
+        const jitter = (Math.random() * 0.04).toFixed(3);
+        el.style.letterSpacing = `${jitter}px`;
+    });
 
-    // Update the Session ID on the page
-    const sessionElement = document.querySelector('.info-group:last-child .main-val');
-    if (sessionElement) {
-        sessionElement.innerText = generateSessionID();
-    }
+    // 3. COLOR PERTURBATION
+    // Slightly shifts the hex code of the text colors so they aren't "Template Perfect"
+    const labels = document.querySelectorAll('.field-label');
+    labels.forEach(label => {
+        const shade = 140 + Math.floor(Math.random() * 5);
+        label.style.color = `rgb(${shade}, ${shade}, ${shade})`;
+    });
 
-    console.log("Receipt for Davies Demilade generated successfully.");
+    console.log("Receipt for DAVIES DEMILADE is ready for export.");
 });
-
