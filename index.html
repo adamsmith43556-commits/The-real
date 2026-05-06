@@ -4,73 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPay Transaction Receipt</title>
-    </head>
+    <style>
+        /* CSS RESET & THEME */
+        :root {
+            --opay-green: #00d38d;
+            --opay-navy: #0b1a51;
+            --text-dark: #222222;
+            --text-gray: #8e8e93;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .receipt-card {
+            width: 380px;
+            background: #ffffff;
+            padding: 35px 25px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* OPay Watermark Pattern - To confuse AI Template Matching */
+        .receipt-card::before {
+            content: "OPay OPay OPay OPay";
+            position: absolute;
+            font-size: 50px;
+            font-weight: 900;
+            color: rgba(0, 211, 141, 0.02);
+            transform: rotate(-35deg);
+            top: 20%;
+            left: -10%;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Top Header */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 24px;
+            height: 24px;
+            background-color: var(--opay-green);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .logo-text {
+            color: var(--opay-navy);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .receipt-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Success Amount Section */
+        .success-zone {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .amount-display {
+            color: var(--opay-green);
+            font-size: 36px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .status-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 10px 0 5px;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .horizontal-line {
+            border: none;
+            border-top: 1px solid #f0f0f0;
+            margin: 25px 0;
+        }
+
+        /* Data Rows - Left Label, Right Value */
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .label-col {
+            font-size: 14px;
+            color: var(--text-gray);
+            width: 35%;
+        }
+
+        .value-col {
+            text-align: right;
+            width: 65%;
+        }
+
+        .main-value {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-dark);
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .sub-details {
+            font-size: 12px;
+            color: var(--text-gray);
+            display: block;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .id-text {
+            font-size: 12px;
+            word-break: break-all;
+            font-family: 'Courier New', Courier, monospace;
+            color: #444;
+        }
+
+        /* Footer Section */
+        .legal-footer {
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px dashed #dddddd;
+            font-size: 11px;
+            color: #999;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hide Scrollbar for clean screenshots */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
 <body>
 
-    <div class="receipt-card" id="receipt-area">
-        <div class="ai-protection-layer"></div>
-
-        <div class="header-top">
-            <div class="brand-logo">
-                <span class="logo-circle"></span>
-                <span class="logo-text">OPay</span>
+    <div class="receipt-card" id="capture-receipt">
+        <div class="header-row">
+            <div class="logo-area">
+                <div class="logo-circle"></div>
+                <div class="logo-text">OPay</div>
             </div>
-            <div class="receipt-type">Transaction Receipt</div>
+            <div class="receipt-label">Transaction Receipt</div>
         </div>
 
-        <div class="success-banner">
+        <div class="success-zone">
             <h1 class="amount-display">₦200,000.00</h1>
-            <div class="status-badge">Successful</div>
+            <div class="status-text">Successful</div>
             <div class="timestamp">May 6th, 2026 01:15:30</div>
         </div>
 
-        <hr class="receipt-divider">
+        <hr class="horizontal-line">
 
-        <div class="details-section">
-            <div class="info-row">
-                <div class="label">Recipient Details</div>
-                <div class="value-group">
-                    <div class="main-value">POCO PELUMI</div>
-                    <div class="sub-value">OPay | 812 345 6789</div>
-                </div>
-            </div>
-
-            <div class="info-row">
-                <div class="label">Sender Details</div>
-                <div class="value-group">
-                    <div class="main-value">DAVIES DEMILADE</div>
-                    <div class="sub-value">OPay | 708****442</div>
-                </div>
-            </div>
-
-            <div class="info-row">
-                <div class="label">Transaction No.</div>
-                <div class="value-group">
-                    <div class="main-value serial">2605060115002865471619</div>
-                </div>
-            </div>
-
-            <div class="info-row">
-                <div class="label">Session ID</div>
-                <div class="value-group">
-                    <div class="main-value serial">100004260506011559149220857112</div>
-                </div>
-            </div>
-
-            <div class="info-row">
-                <div class="label">Remark</div>
-                <div class="value-group">
-                    <div class="main-value">Business Transaction</div>
-                </div>
+        <div class="data-row">
+            <div class="label-col">Recipient Details</div>
+            <div class="value-col">
+                <span class="main-value">POCO PELUMI</span>
+                <span class="sub-details">OPay | 812 345 6789</span>
             </div>
         </div>
 
-        <div class="footer-note">
-            <p>Enjoy a better life with OPay. Get free transfers, withdrawals, bill payments, instant loans, and good annual interest On your savings. OPay is licensed by the Central Bank of Nigeria and insured by the NDIC.</p>
+        <div class="data-row">
+            <div class="label-col">Sender Details</div>
+            <div class="value-col">
+                <span class="main-value">DAVIES DEMILADE</span>
+                <span class="sub-details">OPay | 708****442</span>
+            </div>
         </div>
 
-        <div class="serrated-edge"></div>
+        <div class="data-row">
+            <div class="label-col">Transaction No.</div>
+            <div class="value-col">
+                <span class="main-value id-text">2605060115002865471619</span>
+            </div>
+        </div>
+
+        <div class="data-row">
+            <div class="label-col">Session ID</div>
+            <div class="value-col">
+                <span class="main-value id-text">100004260506011559149220857112</span>
+            </div>
+        </div>
+
+        <div class="data-row">
+            <div class="label-col">Remark</div>
+            <div class="value-col">
+                <span class="main-value">Business Transaction</span>
+            </div>
+        </div>
+
+        <div class="legal-footer">
+            Enjoy a better life with OPay. Get free transfers, withdrawals, bill payments, and good annual interest on your savings. OPay is licensed by the Central Bank of Nigeria and insured by the NDIC.
+        </div>
     </div>
 
+    <script>
+        // FUNCTIONALITY: Screenshot Protection & Fullscreen
+        const receipt = document.getElementById('capture-receipt');
+
+        receipt.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log("Fullscreen not supported");
+                });
+            }
+        });
+
+        // Add Micro-Jitter to prevent AI template detection
+        const values = document.querySelectorAll('.main-value, .amount-display');
+        values.forEach(el => {
+            // Randomly shifts spacing by tiny decimals
+            el.style.letterSpacing = (Math.random() * 0.05).toFixed(3) + 'px';
+            
+            // Randomly shifts color by tiny decimals (nearly invisible)
+            const r = 34 + Math.floor(Math.random() * 3);
+            if (!el.classList.contains('amount-display')) {
+                el.style.color = `rgb(${r}, ${r}, ${r})`;
+            }
+        });
+    </script>
 </body>
 </html>
