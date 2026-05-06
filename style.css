@@ -1,144 +1,150 @@
-/* 2026 OPay Premium UI - High Fidelity */
+/* OPay White Mode - Premium Long Version */
 :root {
     --opay-green: #00d38d;
-    --opay-dark-green: #00b87a;
-    --text-main: #1a1a1a;
-    --text-label: #8e8e93;
-    --bg-card: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #888888;
+    --bg-white: #ffffff;
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #e0e0e0;
     margin: 0;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 40px 10px;
+    font-family: 'Inter', sans-serif;
 }
 
 .receipt-card {
-    width: 375px;
-    background: var(--bg-card);
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    overflow: hidden;
+    width: 380px;
+    background: var(--bg-white);
     position: relative;
+    padding: 30px 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-/* THE AI-SHIELD: Adds microscopic noise to confuse AI detectors */
-.receipt-card::before {
-    content: "";
+/* Watermark Background - Confuses AI Scanners */
+.ai-protection-layer {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='50' fill='rgba(0,211,141,0.03)' font-size='12' transform='rotate(-30 50 50)'%3EOPay%3C/text%3E%3C/svg%3E");
     pointer-events: none;
-    opacity: 0.03; /* Nearly invisible to humans */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    z-index: 5;
+    z-index: 0;
 }
 
-/* Green Header Section */
-.status-header {
-    background: linear-gradient(180deg, var(--opay-green) 0%, var(--opay-dark-green) 100%);
-    padding: 40px 20px;
-    text-align: center;
-    color: white;
-}
-
-.opay-logo {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: -0.5px;
-}
-
-.check-circle {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    margin: 0 auto 12px;
+/* Branding Header */
+.header-top {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    font-size: 24px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
 }
 
-.amount-hero {
-    font-size: 34px;
+.logo-text {
+    font-size: 28px;
+    font-weight: 900;
+    color: #0b1a51;
+}
+
+.receipt-type {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Success Banner */
+.success-banner {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.amount-display {
+    color: var(--opay-green);
+    font-size: 32px;
     font-weight: 800;
     margin: 0;
-    letter-spacing: -0.5px;
 }
 
-.status-label {
+.status-badge {
     font-size: 18px;
     font-weight: 600;
-    margin: 5px 0;
+    margin: 10px 0;
+    color: #333;
 }
 
-.date-time {
-    font-size: 13px;
-    opacity: 0.85;
+.timestamp {
+    font-size: 12px;
+    color: var(--text-gray);
 }
 
-/* Data Content Section */
-.details-body {
-    padding: 25px 20px;
+.receipt-divider {
+    border: none;
+    border-top: 1px solid #eeeeee;
+    margin: 20px 0;
 }
 
-.info-group {
+/* The Data Rows - Right Aligned Values */
+.info-row {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #f8f8f8;
-    padding-bottom: 12px;
-}
-
-.info-group:last-child {
-    border-bottom: none;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
 }
 
 .label {
-    color: var(--text-label);
-    font-size: 12px;
-    margin-bottom: 4px;
+    color: var(--text-gray);
+    font-size: 14px;
+    width: 40%;
 }
 
-.main-val {
-    color: var(--text-main);
-    font-weight: 700;
+.value-group {
+    text-align: right;
+    width: 60%;
+}
+
+.main-value {
+    font-weight: 600;
     font-size: 15px;
-    text-transform: uppercase;
+    color: var(--text-dark);
 }
 
-.sub-val {
-    color: #555;
+.sub-value {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 3px;
+}
+
+.serial {
     font-size: 13px;
-    margin-top: 2px;
+    word-break: break-all;
 }
 
-/* Footer Section */
-.footer-legal {
-    padding: 20px;
-    background: #fafafa;
-    text-align: center;
-}
-
-.legal-text {
+/* Legal Footer */
+.footer-note {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #cccccc;
     font-size: 11px;
-    color: #b0b0b0;
-    margin: 0 0 10px;
-    line-height: 1.4;
-    padding: 0 15px;
+    color: #999;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
-.slogan {
-    color: var(--opay-green);
-    font-weight: 700;
-    font-size: 13px;
-    display: block;
+/* Serrated Edge for AI Detection Evasion */
+.serrated-edge {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: radial-gradient(circle, transparent 70%, #e0e0e0 70%);
+    background-size: 15px 15px;
 }
