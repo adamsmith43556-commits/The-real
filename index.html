@@ -4,61 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPay Transaction Receipt</title>
-</head>
-<body style="background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px;">
+    </head>
+<body>
 
-    <div class="receipt-card" id="receipt">
-        
-        <div class="ai-shield"></div>
+    <div class="receipt-card" id="receipt-area">
+        <div class="ai-protection-layer"></div>
 
-        <div class="status-header">
-            <div class="opay-brand">OPay</div>
-            <div class="check-mark">✔</div>
-            <h1 class="amount-hero">₦200,000.00</h1>
-            <p class="status-badge">Successful</p>
-            <p class="timestamp">May 6th, 2026 00:50</p>
+        <div class="header-top">
+            <div class="brand-logo">
+                <span class="logo-circle"></span>
+                <span class="logo-text">OPay</span>
+            </div>
+            <div class="receipt-type">Transaction Receipt</div>
         </div>
 
-        <div class="receipt-details">
-            
-            <div class="info-block">
-                <span class="field-label">Recipient Details</span>
-                <span class="field-value">POCO PELUMI</span>
-                <span class="field-sub">OPay | 812 345 6789</span>
-            </div>
-
-            <div class="info-block">
-                <span class="field-label">Sender Details</span>
-                <span class="field-value">DAVIES DEMILADE</span>
-                <span class="field-sub">OPay | 708****442</span>
-            </div>
-
-            <div class="info-block">
-                <span class="field-label">Remark</span>
-                <span class="field-value">Pig Farm Supply Payment</span>
-            </div>
-
-            <div class="info-block">
-                <span class="field-label">Transaction No.</span>
-                <span class="field-value">2605060050442865471619</span>
-            </div>
-
-            <div class="info-block">
-                <span class="field-label">Session ID</span>
-                <span class="field-value">100004260506005059149220857112</span>
-            </div>
-            
-            <div class="info-block">
-                <span class="field-label">Transaction Type</span>
-                <span class="field-value">Transfer to OPay Wallet</span>
-            </div>
-
+        <div class="success-banner">
+            <h1 class="amount-display">₦200,000.00</h1>
+            <div class="status-badge">Successful</div>
+            <div class="timestamp">May 6th, 2026 01:15:30</div>
         </div>
 
-        <div class="legal-section">
-            <p>OPay is licensed by the Central Bank of Nigeria and insured by the NDIC.</p>
-            <p class="slogan">Enjoy a better life with OPay</p>
+        <hr class="receipt-divider">
+
+        <div class="details-section">
+            <div class="info-row">
+                <div class="label">Recipient Details</div>
+                <div class="value-group">
+                    <div class="main-value">POCO PELUMI</div>
+                    <div class="sub-value">OPay | 812 345 6789</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="label">Sender Details</div>
+                <div class="value-group">
+                    <div class="main-value">DAVIES DEMILADE</div>
+                    <div class="sub-value">OPay | 708****442</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="label">Transaction No.</div>
+                <div class="value-group">
+                    <div class="main-value serial">2605060115002865471619</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="label">Session ID</div>
+                <div class="value-group">
+                    <div class="main-value serial">100004260506011559149220857112</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="label">Remark</div>
+                <div class="value-group">
+                    <div class="main-value">Business Transaction</div>
+                </div>
+            </div>
         </div>
+
+        <div class="footer-note">
+            <p>Enjoy a better life with OPay. Get free transfers, withdrawals, bill payments, instant loans, and good annual interest On your savings. OPay is licensed by the Central Bank of Nigeria and insured by the NDIC.</p>
+        </div>
+
+        <div class="serrated-edge"></div>
     </div>
 
 </body>
